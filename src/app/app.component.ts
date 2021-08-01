@@ -47,7 +47,7 @@ export class AppComponent implements AfterViewInit {
   async ngAfterViewInit() {
     // Calculate original image size
     for (const image of this.images) {
-      const fileSize: number = await new Promise((resolve, reject) => {
+      const fileSize = await new Promise<number>((resolve, _reject) => {
         var http = new XMLHttpRequest();
         http.open('HEAD', image.url, true);
         http.onreadystatechange = function () {
@@ -64,9 +64,9 @@ export class AppComponent implements AfterViewInit {
     }
 
     // Timeout before bluring to show original images
-    await new Promise((resolve, _reject) => {
+    await new Promise<void>((resolve, _reject) => {
       setTimeout(() => {
-        resolve(true);
+        resolve();
       }, 2000);
     });
 
@@ -99,9 +99,9 @@ export class AppComponent implements AfterViewInit {
       imageLoopIndex++;
 
       // tiny timeout to make it easier to see what is happening
-      await new Promise((resolve, _reject) => {
+      await new Promise<void>((resolve, _reject) => {
         setTimeout(() => {
-          resolve(true);
+          resolve();
         }, 150);
       });
     }
@@ -112,7 +112,7 @@ export class AppComponent implements AfterViewInit {
     width: number;
     height: number;
   }> {
-    const loadedImageObject: HTMLImageElement = await new Promise(
+    const loadedImageObject = await new Promise<HTMLImageElement>(
       (resolve, reject) => {
         const img = new Image();
         img.setAttribute('crossOrigin', '');
