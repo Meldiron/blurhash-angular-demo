@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/40b6c97a-06a3-469f-90ee-4691fb6c58a7/deploy-status)](https://app.netlify.com/sites/unruffled-hermann-117e47/deploys)
+
 # Blurhash
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
